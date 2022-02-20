@@ -1,1 +1,1 @@
-This is the code for Joe Fernandez and Will Jenkin's 495 project
+This is the code for Joe Fernandez's and Will Jenkins' 495 project
