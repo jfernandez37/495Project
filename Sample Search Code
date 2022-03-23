@@ -1,0 +1,42 @@
+import pandas as pd
+import numpy as np
+import scipy.io as sio
+import matplotlib.pyplot as plt
+import os
+# use # l%% w/o space between # and %% when needing to show graphs
+fileLocation = r"C:\Users\wgoco\OneDrive\Desktop\VS_CODE\Python"
+os.chdir(fileLocation)
+
+stuff=sio.loadmat('iFarmData(2015)_1_28_2019.mat')
+ #finds a country given off a country code 
+countryCode = input("Enter a country code: ")
+for i in range(218):
+  countryName = str(stuff['FAOSTAT_CoName_FAO'][i])
+  #print(countryName)
+  testSplit = countryName.split("[")
+  countryName =testSplit[2].split("]")[0]
+
+  countryID = str(stuff['FAOSTAT_CoCODE_FAO'][i])
+  countryID=countryID.replace("[","")
+  countryID=countryID.replace("]","")
+
+  if(countryCode==countryID):
+    print(countryID," ",countryName)
+
+#searches by country name
+countryNa = input("Enter a country name: ")
+for i in range(218):
+  countryName = str(stuff['FAOSTAT_CoName_FAO'][i])
+  #print(countryName)
+  testSplit = countryName.split("[")
+  countryName =testSplit[2].split("]")[0]
+
+  countryID = str(stuff['FAOSTAT_CoCODE_FAO'][i])
+  countryID=countryID.replace("[","")
+  countryID=countryID.replace("]","")
+  countryName=countryName.replace("'","")
+
+  if(countryNa == countryName):
+    print(countryID," ",countryName)
+
+print("DONE")
